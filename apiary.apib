@@ -1,9 +1,80 @@
 FORMAT: 1A
 HOST: http://apps.appmonsta.com:8080/
 
+
 # Ripley API
 
 Ripley is API for getting various app store and engagement metrics on apps.
+
+## Login [/v1/login]
+
+### Login [POST]
+
++ Request (application/json)
+
+        {
+            "username": "user",
+            "password": "password"
+        }
+
++ Response 200 (application/json)
+
+            {
+                "user": "user",
+            }
+            
++ Response 401 (application/json)
+
+        {}
+        
+
+## Logout [/v1/logout]
+
+### Logout [POST]
+
++ Response 200 (application/json)
+
+
+## Signup [/v1/signup]
+
+### Signup [POST]
+
++ Request (application/json)
+
+        {
+        "username": "blaz",
+        "password": "pass",
+        "email": "blaz@appmonsta.com"
+        }
+        
++ Response 200 (application/json)
+
+
+## Change password [/v1/change_password]
+
+### Change password [POST]
+
++ Request (application/json)
+    
+        {
+            "old_password": "old",
+            "new_password1": "new
+        }
+        
+
++ Response 200 (application/json)
+        
+## Update user [/v1/user]
+
+### Update user [PUT]
+
++ Request (application/json)
+
+        {
+            "email": "new@email.com"
+        }
+
++ Response 200 (application/json)
 
 ## Search Collection [/v1/search?term={term}&page={page}]
 
@@ -21,6 +92,7 @@ Ripley is API for getting various app store and engagement metrics on apps.
             "results": [
                 {
                     "id": 1,
+                    "dau": 32,
                     "app_id": "com.facebook.katana", 
                     "app_name": "Facebook",
                     "publisher_name": "Facebook",
@@ -28,11 +100,21 @@ Ripley is API for getting various app store and engagement metrics on apps.
                     "icon_url": "https://lh5.ggpht.com/0VYAvZLR9YhosF-thqm8xl8EWsCfrEY_uk2og2f59K8IOx5TfPsXjFVwxaHVnUbuEjc=w300"
                 },{
                    "id": 2,
+                   "dau": 2,
                    "app_id": "com.facebook.orca", 
                    "app_name": "Messenger",
                    "publisher_name": "Facebook",
                    "publisher_id": "com.facebook",
                    "icon_url": "https://lh5.ggpht.com/0VYAvZLR9YhosF-thqm8xl8EWsCfrEY_uk2og2f59K8IOx5TfPsXjFVwxaHVnUbuEjc=w300"
+                },
+                {
+                    "id": 3,
+                    "dau": 7,
+                    "app_id": "co.facebook.katana", 
+                    "app_name": "Mocekd Facebook",
+                    "publisher_name": "Facebook",
+                    "publisher_id": "com.facebook",
+                    "icon_url": "https://lh5.ggpht.com/0VYAvZLR9YhosF-thqm8xl8EWsCfrEY_uk2og2f59K8IOx5TfPsXjFVwxaHVnUbuEjc=w300"
                 }
             ]
         }
@@ -69,21 +151,22 @@ Ripley is API for getting various app store and engagement metrics on apps.
         {
             "app_id": "com.facebook.app",
             "related": [
-            {
-                "app_id": "com.facebook.katana",
-                "app_name": "Facebook",
-                "publisher_name": "Facebook",
-                "publisher_id": "com.facebook",
-                "icon_url": "https://lh5.ggpht.com/0VYAvZLR9YhosF-thqm8xl8EWsCfrEY_uk2og2f59K8IOx5TfPsXjFVwxaHVnUbuEjc=w300"
-            },
-            {
-                "app_id": "com.facebook.orca",
-                "app_name": "Messenger",
-                "publisher_name": "Facebook",
-                "publisher_id": "com.facebook",
-                "icon_url": "https://lh5.ggpht.com/0VYAvZLR9YhosF-thqm8xl8EWsCfrEY_uk2og2f59K8IOx5TfPsXjFVwxaHVnUbuEjc=w300"
-                
-            }]
+                {
+                    "app_id": "com.facebook.katana",
+                    "app_name": "Facebook",
+                    "publisher_name": "Facebook",
+                    "publisher_id": "com.facebook",
+                    "icon_url": "https://lh5.ggpht.com/0VYAvZLR9YhosF-thqm8xl8EWsCfrEY_uk2og2f59K8IOx5TfPsXjFVwxaHVnUbuEjc=w300"
+                },
+                {
+                    "app_id": "com.facebook.orca",
+                    "app_name": "Messenger",
+                    "publisher_name": "Facebook",
+                    "publisher_id": "com.facebook",
+                    "icon_url": "https://lh5.ggpht.com/0VYAvZLR9YhosF-thqm8xl8EWsCfrEY_uk2og2f59K8IOx5TfPsXjFVwxaHVnUbuEjc=w300"
+                    
+                }
+            ]
         }
 
 
@@ -139,7 +222,7 @@ Ripley is API for getting various app store and engagement metrics on apps.
             "file_size": "Varies with device",
             "genre": "Communication",
             "icon_url": "https://lh5.ggpht.com/0VYAvZLR9YhosF-thqm8xl8EWsCfrEY_uk2og2f59K8IOx5TfPsXjFVwxaHVnUbuEjc=w300",
-            "id": "com.facebook.orca",
+            "app_id": "com.facebook.orca",
             "price": "$0.99",
             "publisher_id": "com.facebook",
             "publisher_email": "android-support@fb.com",
@@ -178,10 +261,10 @@ Ripley is API for getting various app store and engagement metrics on apps.
             "country": "US",
             "app_id": "com.facebook.orca",
             "from": "2015-10-11",
-            "to": "2015-09-11",
+            "to": "2015-11-11",
             "events": [
-                    {"date": "2015-11-01", "type": "description_hist", "value": "One"},
-                    {"date": "2015-11-05", "type": "whats_new_hist", "value": "Updates #1"},
+                    {"date": "2015-09-30", "type": "description_hist", "value": "One"},
+                    {"date": "2015-10-02", "type": "whats_new_hist", "value": "Updates #1"},
                     {"date": "2015-11-09", "type": "icon_hist", "value": "url #2", "old_value": "url #1"},
                     {"date": "2015-11-10", "type": "screenshots_hist", "value": []},
                     {"date": "2015-11-11", "type": "version_hist", "value": "v2", "old_value": "v1"},
@@ -210,11 +293,11 @@ Ripley is API for getting various app store and engagement metrics on apps.
             "from": "2015-10-11",
             "to": "2015-10-17",
             "metrics": {
-                "dau": [1, 2, 3, 3, 2, 1, 3],
+                "dau": [3, 4, 1, 3, 4, 1, 3],
                 "mau": [3, 4, 5, 3, 4, 5, 3],
                 "installs": [10, 11, null, 10, 15, 14, 13],
                 "uninstalls": [1, 1, 2, 1, 0, 0, 0],
-                "sessions": [3, 4, 5, 3, 3, 4, 5],
+                "sessions": [],
                 "session_time": [240, null, 200, 210, 220, 200, 250],
                 "day_time": [40, null, 100, null, 20, 200, 250],
                 "retention": {
@@ -274,13 +357,13 @@ Ripley is API for getting various app store and engagement metrics on apps.
             }
         }
 
-## App Reviews Collection [/v1/apps/{app_id}/reviews?{&q,from,to,tag,page}]
+## App Reviews Collection [/v1/apps/{app_id}/reviews?{&q,start_date,end_date,tag,page}]
 
 + Parameters
     + app_id (string, required) - ID of the app.
     + q (string)    - Search query string.
-    + from (string) - Start date.
-    + to (string) - End date.
+    + start_date (string) - Start date.
+    + end_date (string) - End date.
     + tag (string) - Review tag.
     + page (number) - Page number for paginated results.
 
@@ -291,33 +374,33 @@ Ripley is API for getting various app store and engagement metrics on apps.
 
         {
             "app_id": "com.facebook.orca",
-            "from": "2015-10-11",
-            "to": "2015-09-11",
-            "reviews":
-            [
-            {
-                "rating": 2.0,
-                "user_id": "117344831903115156218",
-                "language": "en",
-                "title": "Doesn't Notify",
-                "user_name": "Alexa Gon",
-                "user_pic_url": "https://lh3.googleusercontent.com/--BnCLQ_n0Lk/AAAAAAAAAAI/AAAAAAAAAFE/KUdmrcPHXeY/w137-c-h137/photo.jpg",
-                "review_text": "It used to notify me of everything just fine, but after an update it kept telling me that the people didn't receive a message when they did, and it wouldn't tell me that I got a new message until I picked up my phone and checked it. Very unreliable, please fix and I'll change my rating.",
-                "date": "2015-10-27",
-                "id": "e1bffecbe1fd2f40a64b468c8df31f6f"
-            },{
-                "rating": 3.0,
-                "user_id": "113365958827050111013",
-                "language": "en",
-                "title": null,
-                "user_name": "Agha Amin",
-                "user_pic_url": "https://lh5.googleusercontent.com/-422c37jgI3Y/AAAAAAAAAAI/AAAAAAAAAOc/mmzr7T41K2M/w137-c-h137/photo.jpg",
-                "review_text": "Its good to meet peoples if you don't have time to meet them personally",
-                "date": "2015-10-27",
-                "unix_timestamp": 1445904000,
-                "date_str": "October 27, 2015",
-                "id": "e119681bda9b5a86bf7e1f1053019197"
-            }
+            "start_date": "2015-10-11",
+            "end_date": "2015-09-11",
+            "hasNextPage": true,
+            "reviews": [
+                {
+                    "rating": 2.0,
+                    "user_id": "117344831903115156218",
+                    "language": "en",
+                    "title": "Doesn't Notify",
+                    "user_name": "Alexa Gon",
+                    "user_pic_url": "https://lh3.googleusercontent.com/--BnCLQ_n0Lk/AAAAAAAAAAI/AAAAAAAAAFE/KUdmrcPHXeY/w137-c-h137/photo.jpg",
+                    "review_text": "It used to notify me of everything just fine, but after an update it kept telling me that the people didn't receive a message when they did, and it wouldn't tell me that I got a new message until I picked up my phone and checked it. Very unreliable, please fix and I'll change my rating.",
+                    "date": "2015-10-27",
+                    "id": "e1bffecbe1fd2f40a64b468c8df31f6f"
+                },{
+                    "rating": 3.0,
+                    "user_id": "113365958827050111013",
+                    "language": "en",
+                    "title": null,
+                    "user_name": "Agha Amin",
+                    "user_pic_url": "https://lh5.googleusercontent.com/-422c37jgI3Y/AAAAAAAAAAI/AAAAAAAAAOc/mmzr7T41K2M/w137-c-h137/photo.jpg",
+                    "review_text": "Its good to meet peoples if you don't have time to meet them personally",
+                    "date": "2015-10-27",
+                    "unix_timestamp": 1445904000,
+                    "date_str": "October 27, 2015",
+                    "id": "e119681bda9b5a86bf7e1f1053019197"
+                }
             ]
         }
 
@@ -497,7 +580,7 @@ Ripley is API for getting various app store and engagement metrics on apps.
                 {
                     "app_id": "com.facebook.orca",
                     "metrics": {
-                        "dau": [1, 2, 3, 3, 2, 1, 3],
+                       
                         "mau": [3, 4, 5, 3, 4, 5, 3],
                         "installs": [10, 11, null, 10, 15, 14, 13],
                         "uninstalls": [1, 1, 2, 1, 0, 0, 0],
