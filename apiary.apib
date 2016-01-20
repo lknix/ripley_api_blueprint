@@ -475,10 +475,6 @@ Ripley is API for getting various app store and engagement metrics on apps.
                 "id": "4",
             }
 
-### Delete [DELETE]
-
-+ Response 204
-
 
 ## Group Features Collection [/v1/groups/{group_id}]
 
@@ -513,7 +509,7 @@ Ripley is API for getting various app store and engagement metrics on apps.
             ]
         }
         
-### Edit Group [POST]
+### Edit Group [PUT]
 
 + Request (application/json)
 
@@ -534,6 +530,10 @@ Ripley is API for getting various app store and engagement metrics on apps.
                 "com.facebook.catana"
             ]
         }
+
+### Delete Group [DELETE]
+
++ Response 204
 
 ## Group Countries [/v1/groups/{group_id}/countries]
 
