@@ -79,8 +79,8 @@ Ripley is API for getting various app store and engagement metrics on apps.
 ## Search Collection [/v1/search?term={term}&page={page}]
 
 + Parameters
-    + term (string, required) - term: app id, app name, publisher name, publisher id.
-    + page (string, required) - page: which results page to return.
+    + term (string, `facebook`) - term: app id, app name, publisher name, publisher id.
+    + page (string, optional, `1`) - page: which results page to return.
 
 
 ### List of search results [GET]
@@ -122,7 +122,7 @@ Ripley is API for getting various app store and engagement metrics on apps.
 ## App Countries [/v1/apps/{app_id}/countries]
 
 + Parameters
-    + app_id (string, required) - App id for which we want list of countries in which it is available.
+    + app_id (string, required, `com.facebook.orca`) - App id for which we want list of countries in which it is available.
 
 
 ### List of countries [GET]
@@ -141,7 +141,7 @@ Ripley is API for getting various app store and engagement metrics on apps.
 ## Related Apps Collection [/v1/apps/{app_id}/related]
 
 + Parameters
-    + app_id (string, required) - App id for which we want related apps.
+    + app_id (string, required, `com.facebook.orca`) - App id for which we want related apps.
 
 
 ### List of related apps [GET]
@@ -173,7 +173,7 @@ Ripley is API for getting various app store and engagement metrics on apps.
 ## Publisher Apps Collection [/v1/publishers/{publisher_id}/apps]
 
 + Parameters
-    + publisher_id (string, required) - App id for which we want related apps.
+    + publisher_id (string, required, `Facebook`) - App id for which we want related apps.
 
 ### Publisher apps list [GET]
 
@@ -198,7 +198,7 @@ Ripley is API for getting various app store and engagement metrics on apps.
 ## App Features Collection [/v1/apps/{app_id}?{fields}]
 
 + Parameters
-    + app_id (string, required) - ID of the app.
+    + app_id (string, required, `com.facebook.orca`) - ID of the app.
     + fields (array of strings) - List of metrics to retrieve.
 
 ### App features data [GET]
@@ -248,9 +248,9 @@ Ripley is API for getting various app store and engagement metrics on apps.
 ## App Events Collection [/v1/apps/{app_id}/events?{&from,to,fields}]
 
 + Parameters
-    + app_id (string, required) - ID of the app.
-    + from (string) - Start date.
-    + to (string) - End date.
+    + app_id (string, required, `com.facebook.orca`) - ID of the app.
+    + from (string, required, `2015-10-01`) - Start date.
+    + to (string, required, `2015-10-02`) - End date.
     + fields (array of strings) - List of metrics to retrieve.
 
 ### App events data [GET]
@@ -276,10 +276,10 @@ Ripley is API for getting various app store and engagement metrics on apps.
 ## App Engagement Collection [/v1/apps/{app_id}/engagement?{&from,to,country,fields}]
 
 + Parameters
-    + app_id (string, required) - ID of the app.
-    + from (string) - Start date.
-    + to (string) - End date.
-    + country (string) - Two letter country code.
+    + app_id (string, required, `com.facebook.orca`) - ID of the app.
+    + from (string, required, `2015-10-01`) - Start date.
+    + to (string, required, `2015-10-02`) - End date.
+    + country (string, required, `US`) - Two letter country code.
     + fields (array of strings) - List of metrics to retrieve.
 
 
@@ -311,8 +311,8 @@ Ripley is API for getting various app store and engagement metrics on apps.
 ## App Engagement Country Data [/v1/apps/{app_id}/country_engagement?{&date}]
 
 + Parameters
-    + app_id (string, required) - ID of the app
-    + date (string) - date for which to fetch country data
+    + app_id (string, required, `com.facebook.orca`) - ID of the app
+    + date (string, required, `2015-10-02`) - date for which to fetch country data
 
 ### App engagement country data [GET]
 + Response 200 (application/json)
@@ -337,9 +337,9 @@ Ripley is API for getting various app store and engagement metrics on apps.
 ## App Reviews Counts Collection [/v1/apps/{app_id}/review_counts?{&from,to}]
 
 + Parameters
-    + app_id (string, required) - ID of the app.
-    + from (string) - Start date.
-    + to (string) - End date.
+    + app_id (string, required, `com.facebook.orca`) - ID of the app.
+    + from (string, required, `2015-10-01`) - Start date.
+    + to (string, required, `2015-10-02`) - End date.
 
 ### App reviews counts data [GET]
 
@@ -360,12 +360,12 @@ Ripley is API for getting various app store and engagement metrics on apps.
 ## App Reviews Collection [/v1/apps/{app_id}/reviews?{&q,start_date,end_date,tag,page}]
 
 + Parameters
-    + app_id (string, required) - ID of the app.
-    + q (string)    - Search query string.
-    + start_date (string) - Start date.
-    + end_date (string) - End date.
-    + tag (string) - Review tag.
-    + page (number) - Page number for paginated results.
+    + app_id (string, required, `com.facebook.orca`) - ID of the app.
+    + q (string, optional)    - Search query string.
+    + start_date (string, required, `2015-10-01`) - Start date.
+    + end_date (string, required, `2015-10-02`) - End date.
+    + tag (string, optiona) - Review tag.
+    + page (number, optional) - Page number for paginated results.
 
 
 ### App reviews data [GET]
@@ -408,10 +408,10 @@ Ripley is API for getting various app store and engagement metrics on apps.
 ## App Rankings Collection [/v1/apps/{app_id}/rankings?{&from,to,country}]
 
 + Parameters
-    + app_id (string, required) - ID of the app.
-    + from (string) - Start date.
-    + to (string) - End date.
-    + country (string) - Two letter country code.
+    + app_id (string, required, `com.facebook.orca`) - ID of the app.
+    + from (string, required, `2015-10-01`) - Start date.
+    + to (string, required, `2015-10-02`) - End date.
+    + country (string, required, `UK`) - Two letter country code.
 
 ### App rankings data [GET]
 
@@ -479,7 +479,7 @@ Ripley is API for getting various app store and engagement metrics on apps.
 ## Group Collection [/v1/groups/{group_id}]
 
 + Parameters
-    + group_id (string, required) - ID of the group.
+    + group_id (string, required, `1`) - ID of the group.
 
 
 ### Get group details [GET]
@@ -539,7 +539,7 @@ Ripley is API for getting various app store and engagement metrics on apps.
 ## Group Countries [/v1/groups/{group_id}/countries]
 
 + Parameters
-    + group_id (string, required) - Group id for which we want list of countries for its apps.
+    + group_id (string, required, `1`) - Group id for which we want list of countries for its apps.
 
 ### List of countries [GET]
 
@@ -560,10 +560,10 @@ Ripley is API for getting various app store and engagement metrics on apps.
 ## Group Engagement Collection [/v1/groups/{group_id}/engagement?{&from,to,fields,country}]
 
 + Parameters
-    + group_id (string, required) - ID of the group.
-    + from (string) - Start date.
-    + to (string) - End date.
-    + country (string) - Two letter country code.
+    + group_id (string, required, `1`) - ID of the group.
+    + from (string, required, `2015-10-01`) - Start date.
+    + to (string, required, `2015-10-02`) - End date.
+    + country (string, required, `UK`) - Two letter country code.
     + fields (array of strings) - List of metrics to retrieve.
 
 ### Group engagement metrics [GET]
@@ -619,10 +619,10 @@ Ripley is API for getting various app store and engagement metrics on apps.
 ## Group Rankings Collection [/v1/groups/{group_id}/rankings?{&start_date,end_date,country}]
 
 + Parameters
-    + group_id (string, required) - ID of the group.
-    + start_date (string) - Start date.
-    + end_date (string) - End date.
-    + country (string) - Two letter country code.
+    + group_id (string, required, `1`) - ID of the group.
+    + start_date (string, required, `2015-10-01`) - Start date.
+    + end_date (string, required, `2015-10-02`) - End date.
+    + country (string, required, `UK`) - Two letter country code.
 
 ### Group rankings metrics [GET]
 
@@ -651,10 +651,10 @@ Ripley is API for getting various app store and engagement metrics on apps.
 ## Group Events Collection [/v1/groups/{group_id}/events?{&start_date,end_date,country}]
 
 + Parameters
-    + group_id (string, required) - ID of the group.
-    + start_date (string) - Start date.
-    + end_date (string) - End date.
-    + country (string) - Two letter country code.
+    + group_id (string, required, `1`) - ID of the group.
+    + start_date (string, required, `2015-10-01`) - Start date.
+    + end_date (string, required, `2015-10-02`) - End date.
+    + country (string, required, `UK`) - Two letter country code.
 
 ### Group events [GET]
 
@@ -683,7 +683,7 @@ Ripley is API for getting various app store and engagement metrics on apps.
 ## Group Related Apps Collection [/v1/groups/{group_id}/related]
 
 + Parameters
-    + group_id (string, required) - Group id for which we want related apps.
+    + group_id (string, required, `1`) - Group id for which we want related apps.
 
 
 ### List of related apps [GET]
