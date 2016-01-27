@@ -32,7 +32,7 @@ Ripley is API for getting various app store and engagement metrics on apps.
 
 ### Logout [POST]
 
-+ Response 200 (application/json)
++ Response 204 (application/json)
 
 
 ## Signup [/v1/signup]
@@ -69,7 +69,15 @@ Ripley is API for getting various app store and engagement metrics on apps.
 
 + Response 200 (application/json)
         
-## Update user [/v1/user]
+## User [/v1/user]
+
+### Get user [GET]
+
++ Response 200 (application/json)
+
+            {
+                "user": "ripley"
+            }
 
 ### Update user [PUT]
 
@@ -241,6 +249,7 @@ Ripley is API for getting various app store and engagement metrics on apps.
                 "https://lh5.ggpht.com/dH_Znb__NjJkyQ0_HW4TPniO3pnfXqhVF9xQ2r06bj_z0PGXIKIIxw0GlvDmKWYUDw=h310",
                 "https://lh6.ggpht.com/qvqDEwA-q0qKrXMfMTaI6GYymqI1sdmS00QYoEYNn_fR2Eh2hIsHKs-D_9c1q9EV5m7N=h310"
             ],
+            "last_events": [],
             "status": "updated",
             "status_date": "October 21, 2015",
             "version": "Varies with device",
@@ -295,7 +304,7 @@ Ripley is API for getting various app store and engagement metrics on apps.
             "from": "2015-10-11",
             "to": "2015-10-17",
             "metrics": {
-                "dau": [3, 4, 1, 3, 4, 1, 3],
+                "dau": [],
                 "mau": [3, 4, 5, 3, 4, 5, 3],
                 "installs": [10, 11, null, 10, 15, 14, 13],
                 "uninstalls": [1, 1, 2, 1, 0, 0, 0],
