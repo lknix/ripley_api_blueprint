@@ -102,8 +102,10 @@ Ripley is API for getting various app store and engagement metrics on apps.
     
         { 
             "count": 3,
-            "page_size: 3,
-            "page": 1
+            "page_size": 3,
+            "page": 1,
+            "term": "fac",
+            "hasNextPage": false,
             "results": [
                 {
                     "id": 1,
@@ -458,16 +460,19 @@ Ripley is API for getting various app store and engagement metrics on apps.
 
         [
             {
-            "group_name": "Crazy hamsters",
-            "group_id": "1"
+                "group_name": "Crazy hamsters",
+                "group_id": "1",
+                "apps": []
             },
             {
-            "group_name": "Crazy dogs",
-            "group_id": "2"
+                "group_name": "Crazy dogs",
+                "group_id": "2",
+                "apps": []
             },
             {
-            "group_name": "Insane aliens",
-            "group_id": "3"
+                "group_name": "Insane aliens",
+                "group_id": "3",
+                "apps": []
             }
         ]
 
