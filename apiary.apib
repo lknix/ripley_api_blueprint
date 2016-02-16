@@ -113,7 +113,6 @@ Ripley is API for getting various app store and engagement metrics on apps.
             "page_size": 3,
             "page": 1,
             "term": "fac",
-            "hasNextPage": false,
             "results": [
                 {
                     "id": 1,
@@ -400,10 +399,13 @@ Ripley is API for getting various app store and engagement metrics on apps.
 + Response 200 (application/json)
 
         {
+            "term": "",
+            "tag": "",
             "app_id": "com.facebook.orca",
             "start_date": "2015-10-11",
             "end_date": "2015-09-11",
-            "hasNextPage": true,
+            "page": 1,
+            "total": 500,
             "reviews": [
                 {
                     "rating": 2.0,
