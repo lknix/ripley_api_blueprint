@@ -76,7 +76,36 @@ Ripley is API for getting various app store and engagement metrics on apps.
         
 
 + Response 200 (application/json)
+
+
+## Password reset [/v1/password_reset]
+
+### Password reset [POST]
+
++ Request (application/json)
+    
+        {
+            "email": "ripley@appmonsta.com",
+        }
         
+
++ Response 204 (application/json)
+
+
+## Password reset [/v1/password_reset_confirm/{uidb64}/{token}/]
+
+### Password reset [POST]
+
++ Request (application/json)
+    
+        {
+            "password": "ripley@appmonsta.com",
+        }
+        
+
++ Response 204 (application/json)
+        
+
 ## User [/v1/user]
 
 ### Get user [GET]
