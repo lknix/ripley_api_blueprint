@@ -191,11 +191,11 @@ Ripley is API for getting various app store and engagement metrics on apps.
             {"name":"Australia", "code":"AU"}
         ]
 
-## Related Apps Collection [/v1/apps/{app_id}/related]
+## Related Apps Collection [/v1/apps/{app_id}/related?page_size={page_size}]
 
 + Parameters
     + app_id (string, required, `com.facebook.orca`) - App id for which we want related apps.
-
+    + page_size (number, optional)
 
 ### List of related apps [GET]
 
@@ -223,10 +223,11 @@ Ripley is API for getting various app store and engagement metrics on apps.
         }
 
 
-## Publisher Apps Collection [/v1/publishers/{publisher_id}/apps]
+## Publisher Apps Collection [/v1/publishers/{publisher_id}/apps?page_size={page_size}]
 
 + Parameters
     + publisher_id (string, required, `Facebook`) - App id for which we want related apps.
+    + page_size (number, optional)
 
 ### Publisher apps list [GET]
 
@@ -740,11 +741,11 @@ Ripley is API for getting various app store and engagement metrics on apps.
             ]
         }
 
-## Group Related Apps Collection [/v1/groups/{group_id}/related]
+## Group Related Apps Collection [/v1/groups/{group_id}/related?page_size={page_size}]
 
 + Parameters
     + group_id (string, required, `1`) - Group id for which we want related apps.
-
+    + page_size (number, optional)
 
 ### List of related apps [GET]
 
